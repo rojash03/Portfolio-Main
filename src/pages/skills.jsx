@@ -2,8 +2,15 @@ import React from "react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { skillCategories } from "../data/cart";
+import { Link } from "react-router-dom";
+import usePageMeta from "../hooks/usePageMeta";
 
 function Skills() {
+  usePageMeta(
+    "Skills | Rojesh Portfolio",
+    "Technical skills, current learning focus, and certifications of Rojesh Thapa."
+  );
+
   return (
     <>
       <Nav />
@@ -22,7 +29,7 @@ function Skills() {
       </div>
 
       {/* Skills Section */}
-      <div className="bg-gray">
+      <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {skillCategories.map((category, index) => (
@@ -37,7 +44,7 @@ function Skills() {
                   {category.skills.map((skill, i) => (
                     <span 
                       key={i} 
-                      className="px-4 py-2 text-sm bg-secondary bg-opacity-10 text-primary border border-secondary border-opacity-30 rounded-lg font-medium hover:bg-secondary hover: transition-all duration-200"
+                      className="px-4 py-2 text-sm bg-secondary bg-opacity-10 text-primary border border-secondary border-opacity-30 rounded-lg font-medium hover:bg-secondary hover:text-textColor transition-all duration-200"
                     >
                       {skill}
                     </span>
@@ -109,12 +116,16 @@ function Skills() {
               Ready to collaborate on your next project? Let's discuss how my skills can help bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
-                View My Projects
-              </button>
-              <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
-                Contact Me
-              </button>
+              <Link to="/projects">
+                <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
+                  View My Projects
+                </button>
+              </Link>
+              <Link to="/contact">
+                <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
+                  Contact Me
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
+import usePageMeta from "../hooks/usePageMeta";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,9 +10,18 @@ function Contact() {
     email: "",
     subject: "",
     message: "",
+    company: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [validationErrors, setValidationErrors] = useState({});
+
+  usePageMeta(
+    "Contact | Rojesh Portfolio",
+    "Get in touch with Rojesh Thapa for collaboration, project work, and opportunities."
+  );
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,17 +29,50 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://formspree.io/f/xeozzzke", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    setSubmitted(false);
+    setErrorMessage("");
+    setValidationErrors({});
 
-    if (response.ok) {
-      setSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } else {
-      alert("There was a problem sending your message.");
+    const errors = {};
+    if (!formData.name.trim()) errors.name = "Name is required.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Please enter a valid email address.";
+    }
+    if (formData.subject.trim().length < 4) {
+      errors.subject = "Subject should be at least 4 characters.";
+    }
+    if (formData.message.trim().length < 20) {
+      errors.message = "Message should be at least 20 characters.";
+    }
+    if (formData.company) {
+      setErrorMessage("Spam detected. Submission blocked.");
+      return;
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeozzzke", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "", company: "" });
+      } else {
+        setErrorMessage("There was a problem sending your message. Please try again.");
+      }
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -51,6 +94,9 @@ function Contact() {
               className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
               required
             />
+            {validationErrors.name && (
+              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.name}</p>
+            )}
 
             <label className="block mb-1">Email:</label>
             <input
@@ -61,6 +107,9 @@ function Contact() {
               className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
               required
             />
+            {validationErrors.email && (
+              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.email}</p>
+            )}
 
             <label className="block mb-1">Subject:</label>
             <input
@@ -71,6 +120,9 @@ function Contact() {
               className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
               required
             />
+            {validationErrors.subject && (
+              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.subject}</p>
+            )}
 
             <label className="block mb-1">Message:</label>
             <textarea
@@ -81,12 +133,26 @@ function Contact() {
               required
               rows="4"
             ></textarea>
+            {validationErrors.message && (
+              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.message}</p>
+            )}
+
+            <input
+              type="text"
+              name="company"
+              value={formData.company || ""}
+              onChange={handleChange}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+            />
 
             <button
               type="submit"
-              className="bg-primary text-textColor px-4 py-2 rounded-md hover:bg-secondary"
+              disabled={isSubmitting}
+              className="bg-primary text-textColor px-4 py-2 rounded-md hover:bg-secondary disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
 
             {submitted && (
@@ -94,6 +160,14 @@ function Contact() {
                 Message sent successfully!
               </p>
             )}
+
+            {errorMessage && (
+              <p className="text-red-600 font-semibold mt-2">{errorMessage}</p>
+            )}
+
+            <p className="text-xs text-gray-500 mt-3">
+              Your details are only used to reply to your message.
+            </p>
           </form>
         </div>
 

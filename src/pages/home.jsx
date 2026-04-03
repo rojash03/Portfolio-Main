@@ -3,8 +3,15 @@ import Nav from "../components/nav";
 import Project from "../components/projectCard";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
+import { Cartdetails } from "../data/cart";
+import usePageMeta from "../hooks/usePageMeta";
 
 function Home() {
+  usePageMeta(
+    "Rojesh | Portfolio",
+    "Portfolio of Rojesh Thapa featuring projects, technical skills, and contact information."
+  );
+
   return (
     <>
       <Nav />
@@ -14,10 +21,10 @@ function Home() {
             <div className="flex-1 max-w-2xl text-center lg:text-left">
               <div className="flex flex-col gap-y-4 md:gap-y-6">
                 <div className="text-primary text-base md:text-lg font-medium tracking-wide">
-                  👋 Welcome to my portfolio
+                  Welcome to my portfolio
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary">
-                  Hello, I am <span className="text-secondary">Rojash</span>
+                  Hello, I am <span className="text-secondary">Rojesh</span>
                 </h1>
                 <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 leading-relaxed">
                   A Passionate <span className="text-secondary">IT Student</span> &amp;
@@ -30,7 +37,7 @@ function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center lg:justify-start">
                   <a
-                    href="/CV.pdf"
+                    href="/Rojesh_Thapa_CV.pdf"
                     download
                     className="px-6 md:px-8 py-3 bg-secondary rounded-lg text-textColor font-medium hover:bg-opacity-90 transition-all duration-300 hover:scale-105 shadow-lg text-center"
                   >
@@ -96,21 +103,21 @@ function Home() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
             <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">1yr</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">1.5 yr</h1>
               <p className="text-textColor text-base md:text-lg font-medium">
                 Years of Learning
               </p>
               <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
             </div>
             <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">92%</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">100%</h1>
               <p className="text-textColor text-base md:text-lg font-medium">
                 Coursework Completed
               </p>
               <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
             </div>
             <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">5+</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">{Cartdetails.length}+</h1>
               <p className="text-textColor text-base md:text-lg font-medium">
                 Projects Completed
               </p>

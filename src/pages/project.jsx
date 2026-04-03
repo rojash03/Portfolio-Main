@@ -2,7 +2,13 @@ import React from "react";
 import Nav from "../components/nav";
 import Project from "../components/projectCard";
 import Footer from "../components/footer";
+import usePageMeta from "../hooks/usePageMeta";
 function ProjectPage() {
+  usePageMeta(
+    "Projects | Rojesh Portfolio",
+    "Explore featured and full-stack projects built by Rojesh Thapa."
+  );
+
   return (
     <>
       <Nav />

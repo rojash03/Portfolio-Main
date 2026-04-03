@@ -3,6 +3,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-primary text-textColor p-4">
       <div className="flex justify-center items-center">
@@ -43,7 +45,7 @@ function Footer() {
         </div>
       </div>
       <div className="flex justify-center items-center mt-2">
-        <span className="text-sm">© 2023 Rojash. All rights reserved.</span>
+        <span className="text-sm">© {currentYear} Rojash. All rights reserved.</span>
       </div>
     </footer>
   );

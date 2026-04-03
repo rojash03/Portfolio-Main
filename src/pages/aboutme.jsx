@@ -4,9 +4,15 @@ import Footer from "../components/footer";
 import { timeline, Hobbies, interests } from "../data/cart.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import usePageMeta from "../hooks/usePageMeta";
 
 function AboutMe() {
   const [selectedTab, setSelectedTab] = useState("journey");
+
+  usePageMeta(
+    "About | Rojesh Portfolio",
+    "Learn more about Rojesh Thapa, academic journey, interests, and development goals."
+  );
 
   return (
     <>
