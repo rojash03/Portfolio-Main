@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 import { Cartdetails } from "../data/cart";
 import usePageMeta from "../hooks/usePageMeta";
+import AnimatedSection from "../components/AnimatedSection";
 
 function Home() {
   usePageMeta(
@@ -18,13 +19,14 @@ function Home() {
       <div className="min-h-screen ">
         <div className="flex w-full items-center justify-center px-4 md:px-8 lg:px-20 py-8 md:py-16">
           <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <div className="flex-1 max-w-2xl text-center lg:text-left">
+            <AnimatedSection animation="fade-left" className="flex-1 max-w-2xl text-center lg:text-left">
               <div className="flex flex-col gap-y-4 md:gap-y-6">
                 <div className="text-primary text-base md:text-lg font-medium tracking-wide">
                   Welcome to my portfolio
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary">
                   Hello, I am <span className="text-secondary">Rojesh</span>
+                  <span className="typing-cursor"></span>
                 </h1>
                 <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 leading-relaxed">
                   A Passionate <span className="text-secondary">IT Student</span> &amp;
@@ -50,24 +52,24 @@ function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
-              <div className="relative">
+            </AnimatedSection>
+            <AnimatedSection animation="fade-right" className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
+              <div className="relative animate-float">
                 <div className="absolute inset-0 bg-secondary opacity-20 blur-3xl rounded-full"></div>
                 <img
-                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl relative z-10 border-4 border-secondary"
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl relative z-10 border-4 border-secondary animate-glow-pulse"
                   src="../profile1.png"
                   alt="profile"
                 />
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </div>
 
       <div className="bg-gray-50 py-8 md:py-10">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-8 md:mb-12">
+          <AnimatedSection animation="fade-up" className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               Featured Projects
             </h2>
@@ -75,9 +77,9 @@ function Home() {
               Check out some of my recent work and projects that showcase my
               skills and creativity
             </p>
-          </div>
+          </AnimatedSection>
           <Project limit={3} />
-          <div className="flex justify-center items-center mt-8 md:mt-12">
+          <AnimatedSection animation="fade-up" className="flex justify-center items-center mt-8 md:mt-12">
             <Link to="/projects">
               <button className="group flex items-center bg-primary text-textColor px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-secondary hover:scale-105 shadow-lg">
                 View More Projects
@@ -96,33 +98,39 @@ function Home() {
                 </svg>
               </button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
       <div className="bg-primary py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
-            <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">1.5 yr</h1>
-              <p className="text-textColor text-base md:text-lg font-medium">
-                Years of Learning
-              </p>
-              <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
-            </div>
-            <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">100%</h1>
-              <p className="text-textColor text-base md:text-lg font-medium">
-                Coursework Completed
-              </p>
-              <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
-            </div>
-            <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">{Cartdetails.length}+</h1>
-              <p className="text-textColor text-base md:text-lg font-medium">
-                Projects Completed
-              </p>
-              <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
-            </div>
+            <AnimatedSection animation="scale-up" delay={0}>
+              <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">1.5 yr</h1>
+                <p className="text-textColor text-base md:text-lg font-medium">
+                  Years of Learning
+                </p>
+                <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="scale-up" delay={150}>
+              <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">100%</h1>
+                <p className="text-textColor text-base md:text-lg font-medium">
+                  Coursework Completed
+                </p>
+                <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="scale-up" delay={300}>
+              <div className="bg-textColor bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8 hover:bg-opacity-20 transition-all duration-300">
+                <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-2">{Cartdetails.length}+</h1>
+                <p className="text-textColor text-base md:text-lg font-medium">
+                  Projects Completed
+                </p>
+                <div className="w-12 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </div>
@@ -130,7 +138,7 @@ function Home() {
       {/* About Section */}
       <div className="bg-gradient-to-b from-gray-50 to-textColor py-20">
         <div className="container mx-auto px-8 text-center">
-          <div className="max-w-4xl mx-auto">
+          <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
             <h2 className="text-5xl font-bold text-gray-800 mb-6">About Me</h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-8 rounded-full"></div>
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
@@ -157,7 +165,7 @@ function Home() {
                 </svg>
               </button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
 

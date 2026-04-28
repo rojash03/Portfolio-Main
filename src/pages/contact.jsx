@@ -3,6 +3,7 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import usePageMeta from "../hooks/usePageMeta";
+import AnimatedSection from "../components/AnimatedSection";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -81,98 +82,100 @@ function Contact() {
       <Nav />
       <div className="flex flex-col md:flex-row w-full p-4 md:p-10 gap-6">
         {/* Contact Form */}
-        <div className="w-full md:w-1/2 bg-textColor shadow-lg rounded-md p-6">
-          <form onSubmit={handleSubmit}>
-            <h1 className="text-2xl font-bold mb-6">Contact Form</h1>
+        <AnimatedSection animation="fade-left" className="w-full md:w-1/2">
+          <div className="bg-textColor shadow-lg rounded-md p-6">
+            <form onSubmit={handleSubmit}>
+              <h1 className="text-2xl font-bold mb-6">Contact Form</h1>
 
-            <label className="block mb-1">Name:</label>
-            <input
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
-              required
-            />
-            {validationErrors.name && (
-              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.name}</p>
-            )}
+              <label className="block mb-1">Name:</label>
+              <input
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full max-w-md px-4 py-2 border rounded-md mb-4 transition-all duration-300 focus:border-secondary focus:ring-2 focus:ring-secondary focus:ring-opacity-30 outline-none"
+                required
+              />
+              {validationErrors.name && (
+                <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.name}</p>
+              )}
 
-            <label className="block mb-1">Email:</label>
-            <input
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
-              required
-            />
-            {validationErrors.email && (
-              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.email}</p>
-            )}
+              <label className="block mb-1">Email:</label>
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full max-w-md px-4 py-2 border rounded-md mb-4 transition-all duration-300 focus:border-secondary focus:ring-2 focus:ring-secondary focus:ring-opacity-30 outline-none"
+                required
+              />
+              {validationErrors.email && (
+                <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.email}</p>
+              )}
 
-            <label className="block mb-1">Subject:</label>
-            <input
-              name="subject"
-              type="text"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
-              required
-            />
-            {validationErrors.subject && (
-              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.subject}</p>
-            )}
+              <label className="block mb-1">Subject:</label>
+              <input
+                name="subject"
+                type="text"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full max-w-md px-4 py-2 border rounded-md mb-4 transition-all duration-300 focus:border-secondary focus:ring-2 focus:ring-secondary focus:ring-opacity-30 outline-none"
+                required
+              />
+              {validationErrors.subject && (
+                <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.subject}</p>
+              )}
 
-            <label className="block mb-1">Message:</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full max-w-md px-4 py-2 border rounded-md mb-4"
-              required
-              rows="4"
-            ></textarea>
-            {validationErrors.message && (
-              <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.message}</p>
-            )}
+              <label className="block mb-1">Message:</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full max-w-md px-4 py-2 border rounded-md mb-4 transition-all duration-300 focus:border-secondary focus:ring-2 focus:ring-secondary focus:ring-opacity-30 outline-none"
+                required
+                rows="4"
+              ></textarea>
+              {validationErrors.message && (
+                <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.message}</p>
+              )}
 
-            <input
-              type="text"
-              name="company"
-              value={formData.company || ""}
-              onChange={handleChange}
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
-            />
+              <input
+                type="text"
+                name="company"
+                value={formData.company || ""}
+                onChange={handleChange}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-primary text-textColor px-4 py-2 rounded-md hover:bg-secondary disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-primary text-textColor px-4 py-2 rounded-md hover:bg-secondary transition-all duration-300 hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
 
-            {submitted && (
-              <p className="text-green-600 font-semibold mt-2">
-                Message sent successfully!
+              {submitted && (
+                <p className="text-green-600 font-semibold mt-2">
+                  Message sent successfully!
+                </p>
+              )}
+
+              {errorMessage && (
+                <p className="text-red-600 font-semibold mt-2">{errorMessage}</p>
+              )}
+
+              <p className="text-xs text-gray-500 mt-3">
+                Your details are only used to reply to your message.
               </p>
-            )}
-
-            {errorMessage && (
-              <p className="text-red-600 font-semibold mt-2">{errorMessage}</p>
-            )}
-
-            <p className="text-xs text-gray-500 mt-3">
-              Your details are only used to reply to your message.
-            </p>
-          </form>
-        </div>
+            </form>
+          </div>
+        </AnimatedSection>
 
         {/* Contact Info */}
-        <div className="w-full md:w-1/2 flex flex-col justify-start gap-4 p-4">
+        <AnimatedSection animation="fade-right" className="w-full md:w-1/2 flex flex-col justify-start gap-4 p-4">
           <div>
             <h1 className="font-bold text-2xl mb-2">Contact Details</h1>
             <p className="text-base text-gray-700">
@@ -181,20 +184,20 @@ function Contact() {
             </p>
           </div>
           <div className="mt-4 space-y-4">
-            <p className="flex items-center">
-              <CiLocationOn className="text-2xl mr-2" />
+            <p className="flex items-center group">
+              <CiLocationOn className="text-2xl mr-2 group-hover:text-secondary transition-colors duration-300" />
               Aapgachi, Itahari, Nepal
             </p>
-            <p className="flex items-center">
-              <CiMail className="text-2xl mr-2" />
+            <p className="flex items-center group">
+              <CiMail className="text-2xl mr-2 group-hover:text-secondary transition-colors duration-300" />
               thaparojash703@gmail.com
             </p>
-            <p className="flex items-center">
-              <CiPhone className="text-2xl mr-2" />
+            <p className="flex items-center group">
+              <CiPhone className="text-2xl mr-2 group-hover:text-secondary transition-colors duration-300" />
               +977 982-6085400
             </p>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
       <Footer />
     </>

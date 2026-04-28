@@ -3,7 +3,7 @@ const Cartdetails = [
     id: 1,
     projectName: "Gym Management System",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=6",
+    image: "/gym_management.png",
     description:
       "A role-based platform for handling member plans, attendance, and trainer schedules.",
     outcome: "Reduced manual tracking and centralized daily member and trainer workflows.",
@@ -14,7 +14,7 @@ const Cartdetails = [
     id: 2,
     projectName: "SkinCare Product Mgmt System",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=7",
+    image: "/skincare_management.png",
     description:
       "Inventory and order tracking system focused on skincare product operations.",
     outcome: "Improved stock visibility and reduced order processing delays for admins.",
@@ -25,7 +25,7 @@ const Cartdetails = [
     id: 3,
     projectName: "Watch Ecommerce Site",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=9",
+    image: "/watch_ecommerce.png",
     description:
       "An e-commerce storefront with product browsing, cart, and checkout-focused flows.",
     outcome: "Delivered a smoother purchase flow with cleaner product discovery and checkout.",
@@ -36,7 +36,7 @@ const Cartdetails = [
     id: 4,
     projectName: "Library Management System",
     ProjectType: "Web and Mobile Application",
-    image: "https://picsum.photos/600/400?random=10",
+    image: "/library_management.png",
     description:
       "Cross-platform system to manage books, borrowing records, due dates, and users.",
     outcome: "Improved tracking of borrowed books and made due-date monitoring more reliable.",
@@ -59,7 +59,7 @@ const Cartdetails = [
     id: 6,
     projectName: "FootStats",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=12",
+    image: "/footstats_dashboard.png",
     description:
       "Football statistics dashboard that presents trends, teams, and match performance insights.",
     outcome: "Converted raw match data into clearer visual insights for faster analysis.",
@@ -70,7 +70,7 @@ const Cartdetails = [
     id: 7,
     projectName: "ShikshaSathi",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=13",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&h=400&fit=crop",
     description:
       "An educational platform for students and teachers to collaborate and share resources.",
     outcome: "Created a single collaboration space for classroom resource sharing.",
@@ -81,7 +81,7 @@ const Cartdetails = [
     id: 8,
     projectName: "Sahayogi Connect",
     ProjectType: "Web Application",
-    image: "https://picsum.photos/600/400?random=14",
+    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
     description:
       "A community platform for connecting volunteers with local organizations and causes.",
     outcome: "Made volunteer discovery and cause matching faster and easier.",
