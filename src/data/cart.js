@@ -1,28 +1,6 @@
 const Cartdetails = [
   {
     id: 1,
-    projectName: "Gym Management System",
-    ProjectType: "Web Application",
-    image: "/gym_management.png",
-    description:
-      "A role-based platform for handling member plans, attendance, and trainer schedules.",
-    outcome: "Reduced manual tracking and centralized daily member and trainer workflows.",
-    githubUrl: "https://github.com/rojash03",
-    liveUrl: "https://github.com/rojash03",
-  },
-  {
-    id: 2,
-    projectName: "SkinCare Product Mgmt System",
-    ProjectType: "Web Application",
-    image: "/skincare_management.png",
-    description:
-      "Inventory and order tracking system focused on skincare product operations.",
-    outcome: "Improved stock visibility and reduced order processing delays for admins.",
-    githubUrl: "https://github.com/rojash03",
-    liveUrl: "https://github.com/rojash03",
-  },
-  {
-    id: 3,
     projectName: "Watch Ecommerce Site",
     ProjectType: "Web Application",
     image: "/watch_ecommerce.png",
@@ -33,7 +11,7 @@ const Cartdetails = [
     liveUrl: "https://github.com/rojash03",
   },
   {
-    id: 4,
+    id: 2,
     projectName: "Library Management System",
     ProjectType: "Web and Mobile Application",
     image: "/library_management.png",
@@ -45,7 +23,7 @@ const Cartdetails = [
   },
 
   {
-    id: 5,
+    id: 3,
     projectName: "BaadFaad",
     ProjectType: "Web Application with PWA features",
     image: "/baadfaad.png",
@@ -56,7 +34,7 @@ const Cartdetails = [
     liveUrl: "https://baadfaad.vercel.app/",
   },
   {
-    id: 6,
+    id: 4,
     projectName: "FootStats",
     ProjectType: "Web Application",
     image: "/footstats_dashboard.png",
@@ -67,7 +45,7 @@ const Cartdetails = [
     liveUrl: "https://footstatsnp.vercel.app/",
   },
   {
-    id: 7,
+    id: 5,
     projectName: "ShikshaSathi",
     ProjectType: "Web Application",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&h=400&fit=crop",
@@ -78,7 +56,7 @@ const Cartdetails = [
     liveUrl: "https://github.com/rojash03",
   },
   {
-    id: 8,
+    id: 6,
     projectName: "Sahayogi Connect",
     ProjectType: "Web Application",
     image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
