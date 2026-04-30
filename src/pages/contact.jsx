@@ -80,12 +80,22 @@ function Contact() {
   return (
     <>
       <Nav />
-      <div className="flex flex-col md:flex-row w-full p-4 md:p-10 gap-6">
+      <div className="bg-ambient pt-24 pb-10 md:pb-16">
+        <div className="container mx-auto px-4 md:px-10">
+          <AnimatedSection animation="fade-down" className="text-center mb-10">
+            <div className="kicker">Contact</div>
+            <h1 className="display-title text-4xl md:text-5xl font-bold text-primary mb-3">Let's Connect</h1>
+            <p className="text-gray-700 max-w-2xl mx-auto">
+              Tell me about your project, an idea you want to explore, or a collaboration opportunity.
+            </p>
+          </AnimatedSection>
+        </div>
+        <div className="flex flex-col md:flex-row w-full p-4 md:p-10 gap-6">
         {/* Contact Form */}
         <AnimatedSection animation="fade-left" className="w-full md:w-1/2">
-          <div className="bg-textColor shadow-lg rounded-md p-6">
+          <div className="card-surface rounded-2xl p-6 md:p-8">
             <form onSubmit={handleSubmit}>
-              <h1 className="text-2xl font-bold mb-6">Contact Form</h1>
+              <h1 className="display-title text-2xl font-bold mb-6">Contact Form</h1>
 
               <label className="block mb-1">Name:</label>
               <input
@@ -152,7 +162,7 @@ function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-primary text-textColor px-4 py-2 rounded-md hover:bg-secondary transition-all duration-300 hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="bg-primary text-textColor px-4 py-2 rounded-xl hover:scale-105 transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -177,7 +187,7 @@ function Contact() {
         {/* Contact Info */}
         <AnimatedSection animation="fade-right" className="w-full md:w-1/2 flex flex-col justify-start gap-4 p-4">
           <div>
-            <h1 className="font-bold text-2xl mb-2">Contact Details</h1>
+            <h1 className="display-title font-bold text-2xl mb-2">Contact Details</h1>
             <p className="text-base text-gray-700">
               I'm always interested in discussing cybersecurity, technology, and
               potential collaboration opportunities. Feel free to reach out!
@@ -198,6 +208,7 @@ function Contact() {
             </p>
           </div>
         </AnimatedSection>
+      </div>
       </div>
       <Footer />
     </>

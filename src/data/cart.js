@@ -3,7 +3,7 @@ const Cartdetails = [
     id: 1,
     projectName: "Watch Ecommerce Site",
     ProjectType: "Web Application",
-    image: "/watch_ecommerce.png",
+    image: "https://oceanwp.org/wp-content/uploads/2021/05/wordpress-template-woocommerce-watch-768x420.png",
     description:
       "An e-commerce storefront with product browsing, cart, and checkout-focused flows.",
     outcome: "Delivered a smoother purchase flow with cleaner product discovery and checkout.",
@@ -14,7 +14,7 @@ const Cartdetails = [
     id: 2,
     projectName: "Library Management System",
     ProjectType: "Web and Mobile Application",
-    image: "/library_management.png",
+    image: "https://www.pixel-studios.com/blog/wp-content/uploads/2018/12/012-1200x600.jpg",
     description:
       "Cross-platform system to manage books, borrowing records, due dates, and users.",
     outcome: "Improved tracking of borrowed books and made due-date monitoring more reliable.",
@@ -37,7 +37,7 @@ const Cartdetails = [
     id: 4,
     projectName: "FootStats",
     ProjectType: "Web Application",
-    image: "/footstats_dashboard.png",
+    image: "/Footstats.png",
     description:
       "Football statistics dashboard that presents trends, teams, and match performance insights.",
     outcome: "Converted raw match data into clearer visual insights for faster analysis.",
@@ -90,7 +90,7 @@ const timeline = [
     id: 4,
     year: "2025",
     event:
-      "Completed my first year of the B.Sc. (Hons) Computing program ",
+      "Completed my second year of the B.Sc. (Hons) Computing program ",
   },
 ];
 
@@ -153,7 +153,7 @@ const Hobbies = [
 const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Java", "Python", "JavaScript", "C" ],
+      skills: ["Java", "Python", "JavaScript", "SQL"],
       color: "blue",
     },
     {
@@ -163,12 +163,12 @@ const skillCategories = [
     },
     {
       title: "Databases",
-      skills: ["MySQL", "MongoDB"],
+      skills: ["MySQL", "MongoDB", "PostgreSQL"],
       color: "orange",
     },
     {
       title: "Tools & Technologies",
-      skills: ["Git", "Postman"],
+      skills: ["Git", "GitHub", "Postman"],
       color: "purple",
     },
   ]

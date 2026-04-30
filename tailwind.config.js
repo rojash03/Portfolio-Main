@@ -17,7 +17,7 @@ module.exports = {
       secondary: "#4ECDC4",
       textColor: "white",
       bgColor: "gray",
-      boxColor:" #F5F5F5",
+      boxColor: "#F5F5F5",
       gray: {
         50: '#f9fafb',
         100: '#f3f4f6',

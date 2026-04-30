@@ -22,10 +22,11 @@ function AboutMe() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-textColor py-12 md:py-20">
+      <div className="bg-textColor pt-24 pb-12 md:pb-20">
         <div className="container mx-auto px-4 md:px-8">
           <AnimatedSection animation="fade-down" className="text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+            <div className="kicker">About</div>
+            <h1 className="display-title text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
               About Me
             </h1>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
@@ -42,7 +43,7 @@ function AboutMe() {
           />
         </AnimatedSection>
         <AnimatedSection animation="fade-right" className="w-full lg:w-[60%] lg:ml-12 text-justify h-full flex flex-col justify-center">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
+          <h1 className="display-title text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
             My Story
           </h1>
           <p>
@@ -71,7 +72,7 @@ function AboutMe() {
         </AnimatedSection>
       </div>
 
-      <div className="bg-gray-50 flex flex-wrap justify-center gap-8 p-8">
+      <div className="bg-ambient flex flex-wrap justify-center gap-8 p-8">
         {[
           {
             title: "Education",
@@ -113,7 +114,7 @@ function AboutMe() {
           },
         ].map((card, index) => (
           <AnimatedSection key={card.title} animation="scale-up" delay={index * 150} className="flex-1 min-w-[280px] max-w-xs flex flex-col">
-            <div className="bg-textColor flex-1 flex flex-col p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200">
+            <div className="card-surface flex-1 flex flex-col p-8 rounded-2xl hover:scale-105 transition-transform">
               <div className="text-center flex-1 flex flex-col">
                 <div className="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,12 +132,13 @@ function AboutMe() {
       <div className="bg-textColor py-20">
         <div className="container mx-auto px-8">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-primary mb-4">Explore My Journey</h2>
+            <div className="kicker">Milestones</div>
+            <h2 className="display-title text-4xl md:text-5xl font-bold text-primary mb-4">Explore My Journey</h2>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" className="flex justify-center mb-12">
-            <div className="flex space-x-2 p-2 bg-gray-100 rounded-2xl border border-gray-200">
+            <div className="flex space-x-2 p-2 bg-white rounded-2xl border border-gray-200 shadow-sm">
               {["journey", "interests", "hobbies"].map((tab) => (
                 <button
                   key={tab}
@@ -156,11 +158,11 @@ function AboutMe() {
           <div className="max-w-6xl mx-auto">
             {selectedTab === "journey" && (
               <div className="animate-fadeIn">
-                <h3 className="text-center text-4xl font-bold mb-8 text-secondary">Academic Journey</h3>
+                <h3 className="text-center text-3xl md:text-4xl font-bold mb-8 text-secondary display-title">Academic Journey</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {timeline.map((item, index) => (
                     <AnimatedSection key={item.id} animation="fade-up" delay={index * 100}>
-                      <div className="bg-textColor p-8 rounded-xl border border-gray-200 hover:border-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col h-full">
+                      <div className="card-surface p-8 rounded-2xl hover:scale-105 transition-transform flex flex-col h-full">
                         <div className="text-center flex-1 flex flex-col">
                           <div className="w-16 h-16 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span className="text-2xl font-bold text-secondary">{item.year}</span>
@@ -176,11 +178,11 @@ function AboutMe() {
 
             {selectedTab === "interests" && (
               <div className="animate-fadeIn">
-                <h3 className="text-center text-4xl font-bold mb-8 text-secondary">My Interests</h3>
+                <h3 className="text-center text-3xl md:text-4xl font-bold mb-8 text-secondary display-title">My Interests</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {interests.map((interest, index) => (
                     <AnimatedSection key={interest.id} animation="fade-up" delay={index * 100}>
-                      <div className="bg-textColor p-8 rounded-xl border border-gray-200 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col h-full">
+                      <div className="card-surface p-8 rounded-2xl hover:scale-105 transition-transform flex flex-col h-full">
                         <div className="text-center flex-1 flex flex-col">
                           <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,11 +201,11 @@ function AboutMe() {
 
             {selectedTab === "hobbies" && (
               <div className="animate-fadeIn">
-                <h3 className="text-center text-4xl font-bold mb-8 text-secondary">Personal Hobbies</h3>
+                <h3 className="text-center text-3xl md:text-4xl font-bold mb-8 text-secondary display-title">Personal Hobbies</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                   {Hobbies.map((hobby, index) => (
                     <AnimatedSection key={hobby.id} animation="scale-up" delay={index * 100}>
-                      <div className="bg-textColor p-8 rounded-xl border border-gray-200 hover:border-pink-400 transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col h-full">
+                      <div className="card-surface p-8 rounded-2xl hover:scale-105 transition-transform flex flex-col h-full">
                         <div className="text-center flex-1 flex flex-col">
                           <div className="text-6xl mb-4 transform hover:scale-110 transition-transform duration-300">{hobby.icon}</div>
                           <h4 className="text-lg font-bold text-pink-600">{hobby.hobby}</h4>
@@ -218,12 +220,12 @@ function AboutMe() {
         </div>
       </div>
 
-      <div className="bg-secondary opacity-80 py-4">
+      <div className="bg-secondary py-6">
         <div className="container mx-auto px-8 text-center">
           <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
-            <h2 className="text-5xl font-bold">Let's Connect!</h2>
+            <h2 className="display-title text-4xl md:text-5xl font-bold text-primary">Let's Connect!</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8 rounded-full"></div>
-            <p className="text-xl font-serif mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-primary mb-8 leading-relaxed">
               Interested in collaborating on tech projects or just want to chat
               about development, design, or the latest in tech? I'd love to hear
               from you!

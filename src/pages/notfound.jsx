@@ -13,10 +13,10 @@ function NotFound() {
   return (
     <>
       <Nav />
-      <div className="min-h-[70vh] flex items-center justify-center px-4 py-16 bg-textColor">
+      <div className="min-h-[70vh] flex items-center justify-center px-4 pt-24 pb-16 bg-textColor">
         <div className="text-center max-w-xl">
-          <h1 className="text-6xl md:text-7xl font-bold text-primary">404</h1>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mt-4">Page Not Found</h2>
+          <h1 className="display-title text-6xl md:text-7xl font-bold text-primary">404</h1>
+          <h2 className="display-title text-2xl md:text-3xl font-bold text-primary mt-4">Page Not Found</h2>
           <p className="text-gray-600 mt-4">
             The page you are looking for does not exist or may have been moved.
           </p>

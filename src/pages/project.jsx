@@ -14,9 +14,10 @@ function ProjectPage() {
   return (
     <>
       <Nav />
-      <div className="text-center py-16">
+      <div className="text-center pt-24 pb-16 bg-ambient">
         <AnimatedSection animation="fade-down">
-          <h1 className="text-5xl font-bold text-primary mb-4">Project Portfolio</h1>
+          <div className="kicker">Projects</div>
+          <h1 className="display-title text-5xl font-bold text-primary mb-4">Project Portfolio</h1>
           <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
         </AnimatedSection>
       </div>

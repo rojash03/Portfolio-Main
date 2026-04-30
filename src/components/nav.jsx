@@ -7,18 +7,19 @@ function Nav() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinkClass = ({ isActive }) =>
-    `transition-colors ${isActive ? "text-primary font-semibold" : "text-gray-600 hover:text-primary"}`;
+    `transition-colors ${isActive ? "text-primary font-semibold" : "text-gray-700 hover:text-primary"}`;
+
 
   return (
-    <nav className="w-full p-4 shadow-md bg-white">
-      <div className="flex items-center justify-between">
+    <nav className="fixed inset-x-0 top-0 z-50">
+      <div className="glass-nav w-full px-4 md:px-8 lg:px-16 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="h-12 w-12">
+          <div className="h-12 w-12 rounded-full overflow-hidden border border-gray-200">
             <Link to="/" onClick={closeMenu}>
               <img src="../logo.jpg" alt="Logo" className="h-full w-full object-cover" />
             </Link>
           </div>
-          <span className="font-bold text-lg">Rojesh</span>
+          <span className="text-lg md:text-xl font-semibold tracking-tight">Rojesh</span>
         </div>
 
         <ul className="hidden md:flex items-center gap-x-10">
@@ -51,15 +52,15 @@ function Nav() {
 
         <div className="hidden md:block">
           <Link to="/contact" onClick={closeMenu}>
-            <button className="px-4 py-2 bg-primary text-textColor rounded-md hover:bg-secondary">
-              Hire Me
+            <button className="px-5 py-2.5 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform">
+              Let's Talk
             </button>
           </Link>
         </div>
 
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-primary border border-gray-200"
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-primary border border-gray-200 bg-white"
           onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
@@ -106,8 +107,8 @@ function Nav() {
 
         <div className="w-full mt-3">
           <Link to="/contact" onClick={closeMenu}>
-            <button className="px-4 py-2 bg-primary text-textColor rounded-md hover:bg-secondary w-full">
-              Hire Me
+            <button className="px-4 py-2 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform w-full">
+              Let's Talk
             </button>
           </Link>
         </div>
