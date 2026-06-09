@@ -72,9 +72,9 @@ function Skills() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               { title: "LinkedIn Learning: Java OOP", desc: "Object-Oriented Programming Fundamentals", status: "Completed", color: "green" },
-              { title: "React & MERN Stack", desc: "Full-Stack Web Development", status: "Learning", color: "blue" },
-              { title: "Web Design with Tailwind CSS", desc: "Responsive UI/UX Design", status: "In Progress", color: "purple" },
-            ].map((cert, index) => (
+              { title: "React & MERN Stack", desc: "Full-Stack Web Development", status: "Completed", color: "green" },
+              { title: "Web Design with Tailwind CSS", desc: "Responsive UI/UX Design", status: "Completed", color: "green" },
+     ].map((cert, index) => (
               <AnimatedSection key={index} animation="scale-up" delay={index * 150}>
                 <div className="card-surface p-8 rounded-2xl hover:scale-105 transition-transform text-center">
                   <div className={`w-16 h-16 bg-${cert.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
