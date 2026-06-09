@@ -64,7 +64,7 @@ const Cartdetails = [
       "A community platform for connecting volunteers with local organizations and causes.",
     outcome: "Made volunteer discovery and cause matching faster and easier.",
     githubUrl: "https://github.com/rojash03",
-    liveUrl: "https://github.com/rojash03"
+    liveUrl: "https://sahayogiconnect.vercel.app"
   }
 ];
 
