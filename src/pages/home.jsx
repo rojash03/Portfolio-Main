@@ -34,7 +34,7 @@ function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center lg:justify-start">
                   <a
-                    href="/Rojesh_Thapa_CV.pdf"
+                    href="/Rojesh Thapa CV.pdf"
                     download
                     className="px-6 md:px-8 py-3 bg-secondary text-primary rounded-xl font-medium hover:scale-105 transition-transform shadow-lg text-center"
                   >
