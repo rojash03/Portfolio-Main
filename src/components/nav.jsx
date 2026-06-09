@@ -64,6 +64,7 @@ function Nav() {
           onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -76,8 +77,17 @@ function Nav() {
         </button>
       </div>
 
-      <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden w-full mt-3`}>
-        <ul className="flex flex-col w-full gap-y-2">
+      {/* overlay to catch outside clicks on mobile */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-30 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <div id="mobile-menu" className={`${isMenuOpen ? "block" : "hidden"} md:hidden w-full mt-3 z-40 relative`}>
+        <ul className="flex flex-col w-full gap-y-4 bg-white rounded-lg p-4 ">
           <li>
             <NavLink to="/" end className={navLinkClass} onClick={closeMenu}>
               Home
