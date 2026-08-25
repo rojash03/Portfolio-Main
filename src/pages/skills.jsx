@@ -7,31 +7,29 @@ import usePageMeta from "../hooks/usePageMeta";
 import AnimatedSection from "../components/AnimatedSection";
 
 function Skills() {
-  usePageMeta(
-    "Skills | Rojesh Portfolio",
-    "Technical skills, current learning focus, and certifications of Rojesh Thapa."
-  );
+  usePageMeta("/skills");
 
   return (
     <>
       <Nav />
+      <main>
       
       {/* Hero Section */}
-      <div className="bg-textColor pt-24 pb-20">
+      <section className="bg-textColor pt-24 pb-20">
         <div className="container mx-auto px-8">
           <AnimatedSection animation="fade-down" className="text-center mb-8">
             <div className="kicker">Skills</div>
-            <h1 className="display-title text-5xl font-bold text-primary mb-4">Technical Skills</h1>
+            <h1 className="display-title text-4xl md:text-5xl font-bold text-primary mb-4">Technical Skills</h1>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
               A comprehensive overview of my technical expertise and continuous learning journey
             </p>
           </AnimatedSection>
         </div>
-      </div>
+      </section>
 
       {/* Skills Section */}
-      <div className="bg-ambient py-12">
+      <section className="bg-ambient py-12" aria-label="Technical skill categories">
         <div className="container mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {skillCategories.map((category, index) => (
@@ -58,14 +56,14 @@ function Skills() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Certifications Section */}
-      <div className="bg-textColor py-16">
+      <section className="bg-textColor py-16" aria-labelledby="learning-heading">
         <div className="container mx-auto px-8">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
             <div className="kicker">Learning</div>
-            <h2 className="display-title text-4xl font-bold text-primary mb-4">Certifications & Learning Goals</h2>
+            <h2 id="learning-heading" className="display-title text-3xl md:text-4xl font-bold text-primary mb-4">Certifications & Learning Goals</h2>
             <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
           </AnimatedSection>
           
@@ -92,31 +90,28 @@ function Skills() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Call to Action */}
-      <div className="bg-secondary p-6">
+      <section className="bg-secondary p-6">
         <div className="container mx-auto px-8 text-center">
           <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto">
-            <h2 className="display-title text-4xl font-bold mb-4 text-primary">Let's Build Something Amazing</h2>
+            <h2 className="display-title text-3xl md:text-4xl font-bold mb-4 text-primary">Let's Build Something Amazing</h2>
             <p className="text-lg md:text-xl mb-8 text-primary">
               Ready to collaborate on your next project? Let's discuss how my skills can help bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/projects">
-                <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
+              <Link to="/projects" className="bg-primary text-textColor font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
                   View My Projects
-                </button>
               </Link>
-              <Link to="/contact">
-                <button className="bg-primary text-textColor font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
+              <Link to="/contact" className="bg-primary text-textColor font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto">
                   Contact Me
-                </button>
               </Link>
             </div>
           </AnimatedSection>
         </div>
-      </div>
+      </section>
+      </main>
 
       <Footer />
     </>

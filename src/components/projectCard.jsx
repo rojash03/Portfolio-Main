@@ -7,7 +7,7 @@ function Project({ limit }) {
 
   return (
     <>
-      <div className="flex flex-wrap p-6 md:p-10 gap-8 md:gap-12 justify-center items-stretch stagger-children">
+      <section className="flex flex-wrap p-6 md:p-10 gap-8 md:gap-12 justify-center items-stretch stagger-children" aria-label="Project cards">
         {projectList.map((item, index) => (
           <AnimatedSection
             key={item.id}
@@ -15,23 +15,28 @@ function Project({ limit }) {
             delay={index * 120}
             className="w-full max-w-sm"
           >
-            <div
+            <article
               className="card-surface rounded-2xl flex flex-col h-full overflow-hidden project-card-animated"
             >
               <div className="relative overflow-hidden">
                 <img
                   className="h-56 md:h-64 w-full mx-auto object-cover transition-transform duration-500 hover:scale-110"
                   src={item.image}
-                  alt={item.projectName}
+                  alt={`${item.projectName} ${item.ProjectType} interface`}
                   loading="lazy"
+                  width="384"
+                  height="256"
+                  onError={(event) => {
+                    event.currentTarget.src = "/preview.png";
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
               <div className="p-5 md:p-6 flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-lg font-semibold text-primary">
+                  <h2 className="text-lg font-semibold text-primary">
                     {item.projectName}
-                  </h1>
+                  </h2>
                   <span className="text-xs font-semibold px-3 py-1 rounded-full bg-secondary text-primary">
                     {item.ProjectType}
                   </span>
@@ -49,11 +54,9 @@ function Project({ limit }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Open ${item.projectName} source code`}
-                    className="flex-1"
+                    className="flex-1 w-full border border-primary text-primary px-4 py-2 rounded-xl hover:bg-primary hover:text-textColor transition-all duration-300 text-center"
                   >
-                    <button className="w-full border border-primary text-primary px-4 py-2 rounded-xl hover:bg-primary hover:text-textColor transition-all duration-300">
                       Source Code
-                    </button>
                   </a>
                 ) : (
                   <button
@@ -70,11 +73,9 @@ function Project({ limit }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit live demo of ${item.projectName}`}
-                    className="flex-1"
+                    className="flex-1 w-full bg-secondary text-primary px-4 py-2 rounded-xl hover:scale-105 transition-transform min-w-[120px] text-center"
                   >
-                    <button className="w-full bg-secondary text-primary px-4 py-2 rounded-xl hover:scale-105 transition-transform min-w-[120px]">
                       Live Demo
-                    </button>
                   </a>
                 ) : (
                   <button
@@ -86,10 +87,10 @@ function Project({ limit }) {
                 )}
               </div>
               </div>
-            </div>
+            </article>
           </AnimatedSection>
         ))}
-      </div>
+      </section>
     </>
   );
 }

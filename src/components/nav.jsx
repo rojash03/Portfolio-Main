@@ -11,12 +11,13 @@ function Nav() {
 
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50">
+    <nav aria-label="Primary navigation">
       <div className="glass-nav w-full px-4 md:px-8 lg:px-16 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="h-12 w-12 rounded-full overflow-hidden border border-gray-200">
             <Link to="/" onClick={closeMenu}>
-              <img src="../logo.jpg" alt="Logo" className="h-full w-full object-cover" />
+              <img src="/logo.jpg" alt="Rojesh Thapa logo" className="h-full w-full object-cover" width="48" height="48" />
             </Link>
           </div>
           <span className="text-lg md:text-xl font-semibold tracking-tight">Rojesh</span>
@@ -51,10 +52,8 @@ function Nav() {
         </ul>
 
         <div className="hidden md:block">
-          <Link to="/contact" onClick={closeMenu}>
-            <button className="px-5 py-2.5 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform">
+          <Link to="/contact" onClick={closeMenu} className="px-5 py-2.5 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform inline-block">
               Let's Talk
-            </button>
           </Link>
         </div>
 
@@ -116,14 +115,13 @@ function Nav() {
         </ul>
 
         <div className="w-full mt-3">
-          <Link to="/contact" onClick={closeMenu}>
-            <button className="px-4 py-2 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform w-full">
+          <Link to="/contact" onClick={closeMenu} className="px-4 py-2 bg-secondary text-primary rounded-xl hover:scale-105 transition-transform w-full block text-center">
               Let's Talk
-            </button>
           </Link>
         </div>
       </div>
     </nav>
+    </header>
   );
 }
 

@@ -19,10 +19,7 @@ function Contact() {
   const [errorMessage, setErrorMessage] = useState("");
   const [validationErrors, setValidationErrors] = useState({});
 
-  usePageMeta(
-    "Contact | Rojesh Portfolio",
-    "Get in touch with Rojesh Thapa for collaboration, project work, and opportunities."
-  );
+  usePageMeta("/contact");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,7 +77,7 @@ function Contact() {
   return (
     <>
       <Nav />
-      <div className="bg-ambient pt-24 pb-10 md:pb-16">
+      <main className="bg-ambient pt-24 pb-10 md:pb-16">
         <div className="container mx-auto px-4 md:px-10">
           <AnimatedSection animation="fade-down" className="text-center mb-10">
             <div className="kicker">Contact</div>
@@ -95,10 +92,11 @@ function Contact() {
         <AnimatedSection animation="fade-left" className="w-full md:w-1/2">
           <div className="card-surface rounded-2xl p-6 md:p-8">
             <form onSubmit={handleSubmit}>
-              <h1 className="display-title text-2xl font-bold mb-6">Contact Form</h1>
+              <h2 className="display-title text-2xl font-bold mb-6">Contact Form</h2>
 
-              <label className="block mb-1">Name:</label>
+              <label htmlFor="name" className="block mb-1">Name:</label>
               <input
+                id="name"
                 name="name"
                 type="text"
                 value={formData.name}
@@ -110,8 +108,9 @@ function Contact() {
                 <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.name}</p>
               )}
 
-              <label className="block mb-1">Email:</label>
+              <label htmlFor="email" className="block mb-1">Email:</label>
               <input
+                id="email"
                 name="email"
                 type="email"
                 value={formData.email}
@@ -123,8 +122,9 @@ function Contact() {
                 <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.email}</p>
               )}
 
-              <label className="block mb-1">Subject:</label>
+              <label htmlFor="subject" className="block mb-1">Subject:</label>
               <input
+                id="subject"
                 name="subject"
                 type="text"
                 value={formData.subject}
@@ -136,8 +136,9 @@ function Contact() {
                 <p className="text-red-600 text-sm -mt-2 mb-3">{validationErrors.subject}</p>
               )}
 
-              <label className="block mb-1">Message:</label>
+              <label htmlFor="message" className="block mb-1">Message:</label>
               <textarea
+                id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -187,7 +188,7 @@ function Contact() {
         {/* Contact Info */}
         <AnimatedSection animation="fade-right" className="w-full md:w-1/2 flex flex-col justify-start gap-4 p-4">
           <div>
-            <h1 className="display-title font-bold text-2xl mb-2">Contact Details</h1>
+            <h2 className="display-title font-bold text-2xl mb-2">Contact Details</h2>
             <p className="text-base text-gray-700">
               I'm always interested in discussing cybersecurity, technology, and
               potential collaboration opportunities. Feel free to reach out!
@@ -208,8 +209,8 @@ function Contact() {
             </p>
           </div>
         </AnimatedSection>
-      </div>
-      </div>
+        </div>
+      </main>
       <Footer />
     </>
   );

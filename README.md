@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# Rojesh Thapa Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Professional portfolio website for Rojesh Thapa, a Nepal-based computing student and frontend/full-stack focused developer interested in responsive web applications, UI/UX, cybersecurity, and practical software engineering.
+
+## About
+
+This project showcases Rojesh Thapa's profile, projects, technical skills, academic journey, and contact information. The site is built as a React single-page application with route-based pages for Home, About, Projects, Skills, Contact, and a custom 404 view.
+
+## Features
+
+- Responsive portfolio UI with fixed navigation and mobile menu
+- Project cards with descriptions, outcomes, source links, and live demo links
+- About page with education, interests, hobbies, and academic timeline
+- Skills page grouped by programming languages, web technologies, databases, and tools
+- Contact form with validation, honeypot spam check, and Formspree submission
+- Route-aware document titles, meta descriptions, canonical URLs, Open Graph, and Twitter card metadata
+- Schema.org JSON-LD for `Person`, `WebSite`, and `ProfilePage`
+- `robots.txt` and `sitemap.xml` for search engine discovery
+
+## Featured Projects
+
+- **Watch Ecommerce Site**: E-commerce storefront focused on product browsing, cart, and checkout flows.
+- **Library Management System**: Web and mobile application for books, borrowing records, due dates, and users.
+- **BaadFaad**: Progressive web app designed for fast loading, installability, and offline-ready access.
+- **FootStats**: Football statistics dashboard for teams, trends, and match performance insights.
+- **ShikshaSathi**: Educational platform for student and teacher collaboration.
+- **Sahayogi Connect**: Community platform connecting volunteers with local organizations and causes.
+
+## Tech Stack
+
+- React 19
+- React Router 7
+- JavaScript
+- Tailwind CSS
+- React Icons
+- Create React App / react-scripts
+- Formspree contact endpoint
+
+## Project Structure
+
+```text
+public/
+  index.html
+  robots.txt
+  sitemap.xml
+  preview.png
+  profile1.png
+  project assets
+src/
+  components/
+  config/
+  data/
+  hooks/
+  pages/
+```
+
+## Routes
+
+- `/` - Homepage and featured projects
+- `/about` - Profile, education, interests, goals, and journey
+- `/projects` - Full project portfolio
+- `/skills` - Technical skills and learning goals
+- `/contact` - Contact form and public contact details
+- `*` - Custom not found page
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+Build and prerender production HTML:
+
+```bash
+npm run build
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` / `npm run dev` - Run the local development server
+- `npm run build` - Create an optimized CRA production build and prerender public routes into `build/`
+- `npm run build:cra` - Run only the CRA production build
+- `npm run prerender` - Render route-specific static HTML after a CRA build
+- `npm run prerender:check` - Validate generated route HTML for SEO tags and body content
+- `npm run ui:check` - Build, prerender, serve the production output, and run responsive Playwright checks
+- `npm test` - Run the React test runner
+- `npm run eject` - Eject CRA configuration
 
-### `npm start`
+## SEO
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+SEO settings are centralized in `src/config/seo.js`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The production domain is:
 
-### `npm test`
+```text
+https://rojeshthapa.com.np
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The production sitemap URL is:
 
-### `npm run build`
+```text
+https://rojeshthapa.com.np/sitemap.xml
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Indexable routes have unique titles, descriptions, canonical URLs, Open Graph metadata, and Twitter card metadata. The homepage includes structured data for Rojesh Thapa as a `Person`, the portfolio as a `WebSite`, and the homepage as a `ProfilePage`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Prerendering
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Build-time prerendering is handled by `scripts/prerender.js`. It reuses the same React route components through `StaticRouter` and writes static HTML for:
 
-### `npm run eject`
+- `build/index.html`
+- `build/about/index.html`
+- `build/projects/index.html`
+- `build/skills/index.html`
+- `build/contact/index.html`
+- `build/404.html`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Run `npm run prerender:check` after a build to confirm each generated file contains essential SEO metadata and meaningful body content before JavaScript executes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Regression Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Playwright is installed as a development dependency for UI regression checks. Run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run ui:check
+```
 
-## Learn More
+The check serves the production `build/` directory and tests `/`, `/about`, `/projects`, `/skills`, `/contact`, and an unknown route at 375, 430, 768, 1024, 1280, and 1440 pixels. It checks for console/page errors, hydration errors, horizontal overflow, missing H1s, missing alt attributes, and broken images.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Performance
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The site uses optimized production bundling through react-scripts, local portfolio assets where available, explicit image dimensions for key images, lazy loading for below-the-fold project images, and lightweight route-level content.
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The repository includes `public/_redirects` for static hosting providers such as Netlify:
 
-### Analyzing the Bundle Size
+```text
+/*    /404.html   404
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The prerendered route folders should be served directly by the host. Unknown URLs should fall through to `404.html` with a 404 status where supported. After deployment, verify direct visits to all public routes, `/robots.txt`, and `/sitemap.xml`.
 
-### Making a Progressive Web App
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Email: thaparojash703@gmail.com
+- Location: Aapgachi, Itahari, Nepal
+- GitHub: https://github.com/rojash03
+- LinkedIn: https://www.linkedin.com/in/rojash-thapa-b10a192b2/
+- Facebook: https://www.facebook.com/rojash.thapa.9
+- Instagram: https://www.instagram.com/theyhaterojash/
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No license file is currently included. Add a license before distributing or reusing this project publicly.

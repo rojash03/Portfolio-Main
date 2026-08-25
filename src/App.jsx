@@ -1,24 +1,34 @@
-import {BrowserRouter, Routes, Route, } from 'react-router-dom';
-import Home from './pages/home';
-import About from './pages/aboutme';
-import Projects from './pages/project';
-import Contact from './pages/contact';
-import Skills from './pages/skills';
-import NotFound from './pages/notfound';
-import ScrollToTop from './components/scrollToTop';
-function App() {
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import About from "./pages/aboutme";
+import Projects from "./pages/project";
+import Contact from "./pages/contact";
+import Skills from "./pages/skills";
+import NotFound from "./pages/notfound";
+import ScrollToTop from "./components/scrollToTop";
+
+export const indexableRoutes = ["/", "/about", "/projects", "/skills", "/contact"];
+
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/skills' element={<Skills />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='*' element={<NotFound />} />
-
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

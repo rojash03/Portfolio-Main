@@ -10,19 +10,14 @@ import AnimatedSection from "../components/AnimatedSection";
 function AboutMe() {
   const [selectedTab, setSelectedTab] = useState("journey");
 
-  usePageMeta(
-    "About | Rojesh Portfolio",
-    "Learn more about Rojesh Thapa, academic journey, interests, and development goals."
-  );
+  usePageMeta("/about");
 
   return (
     <>
-      <div>
-        <Nav />
-      </div>
+      <Nav />
+      <main>
 
-      {/* Hero Section */}
-      <div className="bg-textColor pt-24 pb-12 md:pb-20">
+      <section className="bg-textColor pt-24 pb-12 md:pb-20">
         <div className="container mx-auto px-4 md:px-8">
           <AnimatedSection animation="fade-down" className="text-center">
             <div className="kicker">About</div>
@@ -32,20 +27,22 @@ function AboutMe() {
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
           </AnimatedSection>
         </div>
-      </div>
+      </section>
 
-      <div className="flex flex-col lg:flex-row w-full min-h-[30rem] px-4 md:px-8 lg:px-40 items-center py-8 lg:py-0">
+      <section className="flex flex-col lg:flex-row w-full min-h-[30rem] px-4 md:px-8 lg:px-40 items-center py-8 lg:py-0" aria-labelledby="my-story-heading">
         <AnimatedSection animation="fade-left" className="w-full lg:w-2/5 flex items-center justify-center mb-8 lg:mb-0">
           <img
-            src="../profile1.png"
-            alt="Profile"
+            src="/profile1.png"
+            alt="Rojesh Thapa portrait"
+            width="448"
+            height="448"
             className="object-cover h-64 md:h-80 lg:h-full w-full max-w-md lg:max-w-none rounded-xl"
           />
         </AnimatedSection>
         <AnimatedSection animation="fade-right" className="w-full lg:w-[60%] lg:ml-12 text-justify h-full flex flex-col justify-center">
-          <h1 className="display-title text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
+          <h2 id="my-story-heading" className="display-title text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">
             My Story
-          </h1>
+          </h2>
           <p>
             I'm Rojesh Thapa, a committed BIT student at Itahari International
             College (IIC), pursuing a degree B.Sc. (Hons) Computing program,
@@ -70,9 +67,9 @@ function AboutMe() {
             can trust.
           </p>
         </AnimatedSection>
-      </div>
+      </section>
 
-      <div className="bg-ambient flex flex-wrap justify-center gap-8 p-8">
+      <section className="bg-ambient flex flex-wrap justify-center gap-8 p-8" aria-label="Education, interests, and goals">
         {[
           {
             title: "Education",
@@ -127,23 +124,23 @@ function AboutMe() {
             </div>
           </AnimatedSection>
         ))}
-      </div>
+      </section>
 
-      <div className="bg-textColor py-20">
+      <section className="bg-textColor py-20" aria-labelledby="journey-heading">
         <div className="container mx-auto px-8">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
             <div className="kicker">Milestones</div>
-            <h2 className="display-title text-4xl md:text-5xl font-bold text-primary mb-4">Explore My Journey</h2>
+            <h2 id="journey-heading" className="display-title text-4xl md:text-5xl font-bold text-primary mb-4">Explore My Journey</h2>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" className="flex justify-center mb-12">
-            <div className="flex space-x-2 p-2 bg-white rounded-2xl border border-gray-200 shadow-sm">
+            <div className="flex flex-wrap justify-center gap-2 p-2 bg-white rounded-2xl border border-gray-200 shadow-sm max-w-full">
               {["journey", "interests", "hobbies"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setSelectedTab(tab)}
-                  className={`px-8 py-3 rounded-xl transition-all duration-300 text-sm font-semibold capitalize ${
+                  className={`px-4 sm:px-8 py-3 rounded-xl transition-all duration-300 text-sm font-semibold capitalize ${
                     selectedTab === tab
                       ? "bg-secondary text-textColor shadow-lg scale-105"
                       : "text-gray-600 hover:text-primary hover:bg-gray-200"
@@ -207,7 +204,7 @@ function AboutMe() {
                     <AnimatedSection key={hobby.id} animation="scale-up" delay={index * 100}>
                       <div className="card-surface p-8 rounded-2xl hover:scale-105 transition-transform flex flex-col h-full">
                         <div className="text-center flex-1 flex flex-col">
-                          <div className="text-6xl mb-4 transform hover:scale-110 transition-transform duration-300">{hobby.icon}</div>
+                          <div className="text-sm uppercase tracking-wide text-gray-500 mb-4">{hobby.icon}</div>
                           <h4 className="text-lg font-bold text-pink-600">{hobby.hobby}</h4>
                         </div>
                       </div>
@@ -218,9 +215,9 @@ function AboutMe() {
             )}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-secondary py-6">
+      <section className="bg-secondary py-6">
         <div className="container mx-auto px-8 text-center">
           <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
             <h2 className="display-title text-4xl md:text-5xl font-bold text-primary">Let's Connect!</h2>
@@ -231,30 +228,27 @@ function AboutMe() {
               from you!
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link to="/contact">
-                <button className="bg-primary text-textColor font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
+              <Link to="/contact" className="bg-primary text-textColor font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
                   <span className="flex items-center">
                     Get in Touch
                     <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
-                </button>
               </Link>
-              <Link to="/projects">
-                <button className="bg-primary text-textColor font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105">
+              <Link to="/projects" className="bg-primary text-textColor font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105">
                   <span className="flex items-center">
                     View My Work
                     <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </span>
-                </button>
               </Link>
             </div>
           </AnimatedSection>
         </div>
-      </div>
+      </section>
+      </main>
 
       <Footer />
     </>

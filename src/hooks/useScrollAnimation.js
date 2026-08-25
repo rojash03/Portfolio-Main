@@ -9,9 +9,13 @@ import { useEffect, useRef, useState } from "react";
  */
 function useScrollAnimation(options = {}) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(
+    () => typeof window === "undefined" || !("IntersectionObserver" in window)
+  );
 
   useEffect(() => {
+    if (isVisible || !("IntersectionObserver" in window)) return;
+
     const element = ref.current;
     if (!element) return;
 
@@ -33,7 +37,7 @@ function useScrollAnimation(options = {}) {
     return () => {
       if (element) observer.unobserve(element);
     };
-  }, [options.threshold, options.rootMargin]);
+  }, [isVisible, options.threshold, options.rootMargin]);
 
   return [ref, isVisible];
 }
