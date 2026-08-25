@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Cartdetails } from "../data/cart.js";
 import AnimatedSection from "./AnimatedSection";
 
@@ -47,7 +48,16 @@ function Project({ limit }) {
                 <p className="text-xs text-gray-500 min-h-[2.5rem]">
                   {item.outcome || "Focused on solving a real user problem with clean implementation."}
                 </p>
+                <p className="text-xs text-gray-600">
+                  Role: {item.role}. Built with {item.technologies.join(", ")}.
+                </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-3 mt-2">
+                <Link
+                  to={`/projects/${item.slug}`}
+                  className="flex-1 w-full border border-secondary text-primary px-4 py-2 rounded-xl hover:bg-secondary transition-all duration-300 text-center"
+                >
+                  Case Study
+                </Link>
                 {item.githubUrl ? (
                   <a
                     href={item.githubUrl}

@@ -1,11 +1,13 @@
+import { Cartdetails } from "../data/cart";
+
 export const siteConfig = {
   ownerName: "Rojesh Thapa",
   shortName: "Rojesh",
   siteName: "Rojesh Thapa Portfolio",
   domain: "https://rojeshthapa.com.np",
-  title: "Rojesh Thapa | Frontend Developer & UI/UX-Focused Full-Stack Developer",
+  title: "Rojesh Thapa | Frontend & Full-Stack Developer Nepal",
   description:
-    "Portfolio of Rojesh Thapa, a Nepal-based frontend and full-stack focused developer building responsive React, Node.js, and Tailwind CSS projects.",
+    "Explore Rojesh Thapa's portfolio featuring frontend and full-stack development, React projects, modern web applications, UI/UX work, skills, and experience.",
   author: "Rojesh Thapa",
   themeColor: "#4ECDC4",
   image: "/preview.png",
@@ -29,9 +31,9 @@ export const routeSeo = {
     description: siteConfig.description,
   },
   "/about": {
-    title: "About Rojesh Thapa | Computing Student & Developer",
+    title: "About Rojesh Thapa | Frontend & Full-Stack Developer",
     description:
-      "Learn about Rojesh Thapa, a B.Sc. Computing student at Itahari International College focused on web development, cybersecurity, and software engineering.",
+      "Learn about Rojesh Thapa, a computing student and developer from Nepal focused on frontend development, full-stack web apps, UI/UX, and cybersecurity.",
   },
   "/projects": {
     title: "Projects | Rojesh Thapa Portfolio",
@@ -61,6 +63,21 @@ export const getAbsoluteUrl = (path = "/") => {
 };
 
 export const getSeoForPath = (path = "/") => {
+  if (path.startsWith("/projects/")) {
+    const slug = path.replace("/projects/", "");
+    const project = Cartdetails.find((item) => item.slug === slug);
+
+    if (project) {
+      return {
+        ...siteConfig,
+        title: `${project.projectName} Case Study | Rojesh Thapa`,
+        description: `${project.projectName} is ${project.description.charAt(0).toLowerCase()}${project.description.slice(1)}`,
+        canonical: getAbsoluteUrl(path),
+        imageUrl: getAbsoluteUrl(project.image),
+      };
+    }
+  }
+
   const cleanPath = routeSeo[path] ? path : "/";
   return {
     ...siteConfig,
@@ -79,7 +96,7 @@ export const personJsonLd = {
   image: getAbsoluteUrl("/profile1.png"),
   jobTitle: "Frontend Developer and UI/UX-Focused Full-Stack Developer",
   description:
-    "Rojesh Thapa is a Nepal-based computing student and developer focused on responsive web applications, user experience, cybersecurity, and practical software engineering.",
+    "Rojesh Thapa is a Nepal-based frontend and full-stack focused developer building responsive React applications with attention to UI/UX, cybersecurity, and practical software engineering.",
   email: `mailto:${siteConfig.email}`,
   telephone: siteConfig.phone,
   address: {

@@ -2,7 +2,16 @@ const { spawn } = require("child_process");
 const path = require("path");
 const { chromium } = require("@playwright/test");
 
-const routes = ["/", "/about", "/projects", "/skills", "/contact", "/missing-page"];
+const routes = [
+  "/",
+  "/about",
+  "/projects",
+  "/projects/baadfaad",
+  "/projects/footstats",
+  "/skills",
+  "/contact",
+  "/missing-page",
+];
 const widths = [375, 430, 768, 1024, 1280, 1440];
 const port = 4173;
 const baseUrl = `http://127.0.0.1:${port}`;

@@ -1,6 +1,6 @@
 # Rojesh Thapa Portfolio
 
-Professional portfolio website for Rojesh Thapa, a Nepal-based computing student and frontend/full-stack focused developer interested in responsive web applications, UI/UX, cybersecurity, and practical software engineering.
+Professional portfolio website for Rojesh Thapa, a Nepal-based frontend and full-stack focused developer interested in responsive React applications, UI/UX, cybersecurity, and practical software engineering.
 
 ## About
 
@@ -9,7 +9,7 @@ This project showcases Rojesh Thapa's profile, projects, technical skills, acade
 ## Features
 
 - Responsive portfolio UI with fixed navigation and mobile menu
-- Project cards with descriptions, outcomes, source links, and live demo links
+- Project cards with descriptions, roles, technologies, outcomes, source links, live demo links, and case-study links
 - About page with education, interests, hobbies, and academic timeline
 - Skills page grouped by programming languages, web technologies, databases, and tools
 - Contact form with validation, honeypot spam check, and Formspree submission
@@ -59,6 +59,12 @@ src/
 - `/` - Homepage and featured projects
 - `/about` - Profile, education, interests, goals, and journey
 - `/projects` - Full project portfolio
+- `/projects/watch-ecommerce-site` - Watch Ecommerce Site case study
+- `/projects/library-management-system` - Library Management System case study
+- `/projects/baadfaad` - BaadFaad case study
+- `/projects/footstats` - FootStats case study
+- `/projects/shikshasathi` - ShikshaSathi case study
+- `/projects/sahayogi-connect` - Sahayogi Connect case study
 - `/skills` - Technical skills and learning goals
 - `/contact` - Contact form and public contact details
 - `*` - Custom not found page
@@ -119,6 +125,12 @@ Build-time prerendering is handled by `scripts/prerender.js`. It reuses the same
 - `build/index.html`
 - `build/about/index.html`
 - `build/projects/index.html`
+- `build/projects/watch-ecommerce-site/index.html`
+- `build/projects/library-management-system/index.html`
+- `build/projects/baadfaad/index.html`
+- `build/projects/footstats/index.html`
+- `build/projects/shikshasathi/index.html`
+- `build/projects/sahayogi-connect/index.html`
 - `build/skills/index.html`
 - `build/contact/index.html`
 - `build/404.html`
@@ -133,7 +145,11 @@ Playwright is installed as a development dependency for UI regression checks. Ru
 npm run ui:check
 ```
 
-The check serves the production `build/` directory and tests `/`, `/about`, `/projects`, `/skills`, `/contact`, and an unknown route at 375, 430, 768, 1024, 1280, and 1440 pixels. It checks for console/page errors, hydration errors, horizontal overflow, missing H1s, missing alt attributes, and broken images.
+The check serves the production `build/` directory and tests `/`, `/about`, `/projects`, selected project case studies, `/skills`, `/contact`, and an unknown route at 375, 430, 768, 1024, 1280, and 1440 pixels. It checks for console/page errors, hydration errors, horizontal overflow, missing H1s, missing alt attributes, and broken images.
+
+## Search Appearance Notes
+
+For stronger Google identity signals, keep `https://rojeshthapa.com.np` linked from Rojesh Thapa's LinkedIn profile, GitHub profile, GitHub profile README, and other genuine professional profiles. Submit `https://rojeshthapa.com.np/sitemap.xml` in Google Search Console after deployment.
 
 ## Performance
 

@@ -22,7 +22,7 @@ function Skills() {
             <h1 className="display-title text-4xl md:text-5xl font-bold text-primary mb-4">Technical Skills</h1>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              A comprehensive overview of my technical expertise and continuous learning journey
+              Crawlable overview of my frontend, backend, database, UI/UX, and development-tool skills.
             </p>
           </AnimatedSection>
         </div>

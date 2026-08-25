@@ -20,15 +20,18 @@ function Home() {
             <AnimatedSection animation="fade-left" className="flex-1 max-w-2xl text-center lg:text-left">
               <div className="flex flex-col gap-y-4 md:gap-y-6">
                 <div className="kicker">Portfolio</div>
-                <h1 className="display-title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary">
+                <p className="display-title text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary">
                   I build calm, high-impact experiences.
+                </p>
+                <h1 className="text-2xl md:text-3xl font-semibold leading-tight text-primary">
+                  Rojesh Thapa - Frontend & Full-Stack Developer
                 </h1>
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  I am <span className="text-secondary font-semibold">Rojesh</span>, an IT student and aspiring developer
-                  focused on clean UX, frontend development, performance, and secure systems.
+                  I'm <span className="text-secondary font-semibold">Rojesh Thapa</span>, a frontend and full-stack focused
+                  developer from Nepal building responsive web applications with React, JavaScript, Node.js, and modern UI/UX principles.
                 </p>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                  I craft modern web products that feel intuitive, fast, and purpose-driven.
+                  This portfolio highlights my projects, skills, academic journey, and approach to building intuitive, fast, and purpose-driven software.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center lg:justify-start">
                   <a
@@ -53,7 +56,7 @@ function Home() {
                 <img
                   className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-[2.5rem] shadow-2xl relative z-10 border border-gray-200"
                   src="/profile1.png"
-                  alt="Rojesh Thapa portrait"
+                  alt="Rojesh Thapa, frontend developer"
                   width="384"
                   height="384"
                 />
@@ -70,8 +73,7 @@ function Home() {
               Featured Projects
             </h2>
             <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-4">
-              Check out some of my recent work and projects that showcase my
-              skills and creativity
+              Explore React, PWA, dashboard, education, e-commerce, and community web projects that show how I approach frontend, full-stack, and UI/UX work.
             </p>
           </AnimatedSection>
           <Project limit={3} />
@@ -135,11 +137,16 @@ function Home() {
             <h2 id="about-preview-heading" className="display-title text-4xl md:text-5xl font-bold text-primary mb-6">About Me</h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-8 rounded-full"></div>
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
-              I'm a dedicated IT student with a passion for learning new tools
-              and technologies. My journey started with curiosity about how
-              computers work and evolved into a deep interest in protecting
-              digital infrastructure and creating innovative solutions.
+              Rojesh Thapa is a B.Sc. Computing student at Itahari International College with a practical focus on web development, UI/UX, secure systems, and problem solving.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Link to="/skills" className="text-primary underline decoration-secondary decoration-2 underline-offset-4">
+                View frontend and full-stack skills
+              </Link>
+              <Link to="/projects" className="text-primary underline decoration-secondary decoration-2 underline-offset-4">
+                Explore project work
+              </Link>
+            </div>
             <Link to="/about" className="group inline-flex items-center bg-secondary text-primary px-8 py-4 rounded-xl font-medium text-lg hover:scale-105 transition-transform shadow-lg">
                 Learn More About Me
                 <svg

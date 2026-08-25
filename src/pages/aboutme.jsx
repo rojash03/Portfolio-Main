@@ -58,6 +58,13 @@ function AboutMe() {
             problems.
           </p>
           <p className="mt-4">
+            My frontend work focuses on accessible layouts, clear interaction
+            patterns, responsive Tailwind CSS interfaces, and UI decisions that
+            make applications easier to understand. On the backend side, I am
+            building experience with Node.js, Express.js, SQL, MongoDB, and
+            PostgreSQL so I can connect polished interfaces to useful systems.
+          </p>
+          <p className="mt-4">
             I focus on writing clean, maintainable code and designing efficient,
             scalable systems that prioritize performance, security, and user
             experience. I continuously refine my skills, follow best development
@@ -65,6 +72,9 @@ function AboutMe() {
             analytical mindset. With a strong interest in cybersecurity, I aim
             to build secure and reliable software that users and organizations
             can trust.
+          </p>
+          <p className="mt-4">
+            You can explore my <Link to="/projects" className="text-primary underline decoration-secondary decoration-2 underline-offset-4">web application projects</Link> or review my <Link to="/skills" className="text-primary underline decoration-secondary decoration-2 underline-offset-4">technical skill set</Link> to see the areas I am actively developing.
           </p>
         </AnimatedSection>
       </section>
